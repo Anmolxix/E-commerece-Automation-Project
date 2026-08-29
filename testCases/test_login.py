@@ -1,12 +1,14 @@
 import pytest
 from selenium import webdriver
 from pageObjects.LoginPage import Login
+from utilities.readProperties import ReadConfig
+from utilities.readProperties import ReadConfig2
 
 
 class Test_001_Login:
-    baseURL = "https://admin-demo.nopcommerce.com/admin/"
-    username= "admin@yourstore.com"
-    password= "admin"
+    baseURL = ReadConfig.getApplicationURL()
+    username= ReadConfig.getPassword()
+    password= ReadConfig.getUsername()
 
     def test_homePageTitle(self,setup):
         self.driver = setup
@@ -45,9 +47,9 @@ class Test_001_Login:
 
 
 class Test_002_login:
-      baseURL = "https://admin-demo.nopcommerce.com/admin/"
-      username= "admin@yourstore.com22"
-      password= "admin"
+      baseURL = ReadConfig.getApplicationURL()
+      username= ReadConfig2.getPassword()
+      password= ReadConfig2.getUsername()
 
       def test_login2(self,setup):
            self.driver= setup
